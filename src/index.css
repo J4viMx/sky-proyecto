@@ -1,0 +1,85 @@
+.navbar-fondo{
+    background-color: #0077C8;
+}
+
+.logo{
+    max-width: 150px;
+}
+
+.card-body svg{
+    transform: scale(1.6);
+    margin-bottom: 15px;
+}
+
+.plan_black,
+.plan_platino,
+.plan_gold{
+    margin-top: -30px;
+    /* background-color: rgb(37, 37, 37); */
+    position: sticky;
+    z-index: -1;
+    height: 40px;
+    padding-top: 2px;
+    text-align: center;
+    color: white;
+    border-radius: 20px;
+}
+
+.plan_black{
+    background-color: rgb(37, 37, 37);
+}
+
+.plan_platino{
+    background-color: #E5E4E2;
+    color: rgb(116, 115, 115);
+    font-weight: 500;
+}
+
+.plan_gold{
+    background-color: #ffc600;
+}
+
+.texto-azul{
+    font-weight: 700;
+    color: rgb(65, 162, 241);
+}
+
+
+
+.precio{
+    color: rgb(65, 162, 241);
+    font-weight: 700 !important;
+}
+
+.incluye-sub{
+    background-color: rgb(233, 233, 233);
+}
+
+.paramount-logo{
+    width: 200px;
+}
+
+.card:hover{
+    transform: scale(1.1);
+    transition: all .3s ease-in-out;
+}
+
+.footer{
+    background-color: #0077C8;
+    padding: 20px;
+}
+
+.botones-categoria{
+    border-bottom: 5px solid rgb(82, 82, 82) !important;
+    cursor: pointer;
+}
+
+
+.boton-seleccionado{
+    border-bottom: 5px solid #0077C8 !important;
+}
+
+.fondo-paquetes{
+    /* background-color: rgb(228, 228, 228); */
+    background-image: url('./assets/fondo.png');
+}
