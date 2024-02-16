@@ -1,0 +1,43 @@
+name: Update README and Create PR
+on: [push]
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14'
+        
+    - name: Create new branch
+      run: |
+        git checkout -b update-readme-${GITHUB_SHA}
+        
+    - name: Make fetch request and update README
+      run: |
+        npm install node-fetch
+        node -e "const fs = require('fs'); const fetch = require('node-fetch'); fetch('https://apimocha.com/git-prueba/prueba').then(response => response.json()).then(data => { const readmeContent = `# Dynamic README\n\nThis README is updated automatically.\n\nAPI Data: ${JSON.stringify(data, null, 2)}`; fs.writeFileSync('README.md', readmeContent); }).catch(error => console.error(error));"
+        
+    - name: Commit changes
+      run: |
+        git config --global user.email "javimxmine@hotmail.com"
+        git config --global user.name "J4viMx"
+        git add README.md
+        git commit -m "Update README.md with API data"
+        
+    - name: Push changes
+      run: |
+        git push --set-upstream origin update-readme-${GITHUB_SHA}
+        
+    - name: Create Pull Request
+      uses: repo-sync/pull-request@v2
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        pr_title: "Update README with API data"
+        pr_body: "This PR updates the README.md with data fetched from an API."
+        destination_branch: "main"
+        source_branch: "update-readme-${GITHUB_SHA}"
