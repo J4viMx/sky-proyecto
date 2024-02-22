@@ -20,7 +20,7 @@ jobs:
     - name: Make fetch request and update README
       run: |
         npm install axios
-        node -e "const fs = require('fs'); const axios = require('axios'); axios.get('https://apimocha.com/git-prueba/prueba').then(response => response.json()).then(data => { console.log(data, 'datata'); const readmeContent = \`# Dynamic README\\n\\nThis README is updated automatically.\\n\\nAPI Data: \${JSON.stringify(data, null, 2)}\`; fs.writeFileSync('README.md', readmeContent); }).catch(error => console.error(error));"
+        node -e "const fs = require('fs'); const axios = require('axios'); axios.get('https://apimocha.com/git-prueba/prueba').then(response => { console.log(response, "response"); response.json()}).then(data => { const readmeContent = \`# Dynamic README\\n\\nThis README is updated automatically.\\n\\nAPI Data: \${JSON.stringify(data, null, 2)}\`; fs.writeFileSync('README.md', readmeContent); }).catch(error => console.error(error));"
         
     - name: Commit changes
       run: |
