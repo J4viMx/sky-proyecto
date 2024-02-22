@@ -40,4 +40,4 @@ jobs:
         pr_title: "Update README with API data"
         pr_body: "This PR updates the README.md with data fetched from an API."
         destination_branch: "main"
-        source_branch: "update-readme
+        source_branch: "update-readme"
