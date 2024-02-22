@@ -15,7 +15,7 @@ jobs:
         
     - name: Create new branch
       run: |
-        git checkout -b update-readme-${GITHUB_SHA}
+        git checkout -b update-readme
         
     - name: Make fetch request and update README
       run: |
